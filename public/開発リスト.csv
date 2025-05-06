@@ -1,0 +1,14 @@
+ファイル名,責務・機能,備考
+fetchElfPrice.js,ELF価格取得と作物ELF換算,✅ 既に完成
+drawTable.js,抽選確率テーブル（レベル別）,JSON定義として利用
+gachaRoller.js,抽選実行（単体・複数）,drawResult/drawMultipleResults
+seed.js,Seedクラス（粉数などの状態）,
+powderManager.js,PowderManager（粉残量計算）,星の粉＋蒼星の粉の扱い
+seedPageManager.js,種のページ表示管理,ページ切替あり
+powderAllocation.js,粉振り分けフェーズ管理,フェーズ全体をコントロール
+growthManager.js,成長・抽選表示演出,結果の演出を逐次実行
+resultScreen.js,スコア/ELF/円換算＆3段表示,段階的にonStageChange
+itemPriceConfig.js,価格基準の初期定義,JPYと固定ELF価格を定義
+gamePhases.js,フェーズ状態管理,ステートマシン的役割
+soundManager.js,SE/BGM再生管理,右上ミュートボタン対応
+historyManager.js,プレイ履歴の保存/閲覧,localStorage管理

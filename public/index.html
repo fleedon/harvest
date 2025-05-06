@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>エルフの森ミニゲーム</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #222;
+      height: 100%;
+      overflow: hidden;
+    }
+#gameCanvas {
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+
+  height: calc(100vh - 32px);  /* ← 通貨バー分を引く */
+
+  width: auto; /* 高さに合わせた幅自動調整 */
+  touch-action: none;
+}
+
+    #overlay, #resultUI {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+    }
+    #resultUI { display: none; }
+    button {
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+    }
+    #muteBtn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 20;
+    }
+  </style>
+</head>
+<body>
+<!-- 通貨バーCanvas（上部固定） -->
+<canvas id="currencyCanvas"
+        width="360" height="32"
+        style="
+          position:fixed;
+          top:0;
+          left:50%;
+          transform:translateX(-50%);
+          z-index:9;">
+</canvas><!-- メインゲームCanvasはその下へ -->
+<canvas id="gameCanvas" width="360" height="720" style="margin-top:32px;"></canvas>
+
+  <!-- オーバーレイ（スタート画面） -->
+  <div id="overlay">
+    <button id="startBtn">ゲームスタート</button>
+  </div>
+
+  <!-- 結果表示UI -->
+  <div id="resultUI">
+    <div id="resultText">結果がここに表示されます</div>
+    <button id="retryBtn">もう一度</button>
+    <button id="shareBtn">結果を共有</button>
+    <button id="historyBtn">履歴を見る</button>
+  </div>
+
+  <!-- ミュートボタン -->
+  <button id="muteBtn">音ON/OFF</button>
+
+  <!-- プリロード画像 -->
+  <img id="img_player" src="img/player.png" hidden />
+  <img id="img_master" src="img/master.png" hidden />
+  <img id="img_elf" src="img/elf.png" hidden />
+  <img id="img_seed" src="img/seed.png" hidden />
+  <img id="img_powder" src="img/powder.png" hidden />
+  <img id="img_bluepowder" src="img/bluepowder.png" hidden />
+  <img id="img_bottle" src="img/bottle.png" hidden />
+  <img id="img_sparkle" src="img/sparkle.png" hidden />
+  <img id="img_gold" src="img/gold.png" hidden />
+  <img id="img_silver" src="img/silver.png" hidden />
+  <img id="img_copper" src="img/copper.png" hidden />
+  <img id="img_glass" src="img/glass.png" hidden />
+  <img id="img_sapphire" src="img/sapphire.png" hidden />
+  <img id="img_emerald" src="img/emerald.png" hidden />
+  <img id="img_miss" src="img/miss.png" hidden />
+<!-- 回転光エフェクト -->
+<img id="img_light_glow" src="img/light_glow.png" hidden />
+<!-- 粒子 -->
+<img id="img_sparkle"    src="img/sparkle.png"    hidden />
+
+  <!-- メインスクリプト -->
+
+<script type="module" src="main.js"></script>
+<script type="module" src="currencyBar.js"></script>
+
+</body>
+</html>
