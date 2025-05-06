@@ -15,4 +15,4 @@ jobs:
           args: deploy --only functions
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_ID: <YOUR_PROJECT_ID>
+          PROJECT_ID: harvest-56429
